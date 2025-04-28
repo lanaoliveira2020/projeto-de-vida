@@ -15,13 +15,21 @@ for (let i = 0; i < botoes.length; i++) {
 }
 
 const contadores = document.querySelectorAll(".contador");
-const tempoObjetivo1 = new Date("2023-10-05T00:00:00");
-const tempoObjetivo2 = new Date("2023-12-05T00:00:00");
-const tempoObjetivo3 = new Date("2023-12-30T00:00:00");
-const tempoObjetivo4 = new Date("2024-02-01T00:00:00");
+
+// Ajustando as novas datas de objetivo
+const tempoObjetivo1 = new Date();
+tempoObjetivo1.setDate(tempoObjetivo1.getDate() + 243);  // 243 dias a partir de hoje
+
+const tempoObjetivo2 = new Date();
+tempoObjetivo2.setHours(tempoObjetivo2.getHours() + 5840);  // 5840 horas a partir de agora
+
+const tempoObjetivo3 = new Date();
+tempoObjetivo3.setSeconds(tempoObjetivo3.getSeconds() + 350400);  // 350400 segundos a partir de agora
+
+const tempoObjetivo4 = new Date();
+tempoObjetivo4.setSeconds(tempoObjetivo4.getSeconds() + 21024023);  // 21024023 segundos a partir de agora
 
 const tempos = [tempoObjetivo1, tempoObjetivo2, tempoObjetivo3, tempoObjetivo4];
-
 
 function calculaTempo(tempoObjetivo) {
     let tempoAtual = new Date();
