@@ -29,6 +29,7 @@ tempoObjetivo3.setSeconds(tempoObjetivo3.getSeconds() + 350400);  // 350400 segu
 const tempoObjetivo4 = new Date();
 tempoObjetivo4.setSeconds(tempoObjetivo4.getSeconds() + 21024023);  // 21024023 segundos a partir de agora
 
+// Atualizando o array de tempos
 const tempos = [tempoObjetivo1, tempoObjetivo2, tempoObjetivo3, tempoObjetivo4];
 
 function calculaTempo(tempoObjetivo) {
@@ -42,6 +43,7 @@ function calculaTempo(tempoObjetivo) {
     segundos %= 60;
     minutos %= 60;
     horas %= 24;
+
     if (tempoFinal > 0) {
         return [dias, horas, minutos, segundos];
     } else {
@@ -51,10 +53,13 @@ function calculaTempo(tempoObjetivo) {
 
 function atualizaCronometro() {
     for (let i = 0; i < contadores.length; i++) {
-        document.getElementById("dias" + i).textContent = calculaTempo(tempos[i])[0];
-        document.getElementById("horas" + i).textContent = calculaTempo(tempos[i])[1];
-        document.getElementById("min" + i).textContent = calculaTempo(tempos[i])[2];
-        document.getElementById("seg" + i).textContent = calculaTempo(tempos[i])[3];
+        const tempoRestante = calculaTempo(tempos[i]);
+
+        // Atualizando os elementos com os valores calculados
+        document.getElementById("dias" + i).textContent = tempoRestante[0];
+        document.getElementById("horas" + i).textContent = tempoRestante[1];
+        document.getElementById("min" + i).textContent = tempoRestante[2];
+        document.getElementById("seg" + i).textContent = tempoRestante[3];
     }
 }
 
